@@ -16,6 +16,7 @@ steps:
 - task: DotNetCoreInstaller@0
   inputs:
     version: '2.1.300'
+- script: dir
 - script: dotnet restore $(Agent.BuildDirectory)\R2.ML.DeepLearning\R2.ML.DeepLearning.csproj
 - script: dotnet build $(Agent.BuildDirectory)\R2.ML.DeepLearning\R2.ML.DeepLearning.csproj --configuration $(buildConfiguration)
 
