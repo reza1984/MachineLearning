@@ -1,0 +1,15 @@
+<div class="animated fadeIn">
+  <div class="d-flex flex-wrap" *ngIf="(followers$ | async) as followers">
+    <div class="col-sm-4 col-md-3" *ngFor="let follower of followers">
+      <div class="card">
+        <div class="card-header" (click)="navigateToFollower(follower.userName)">
+          {{ follower.fullName }}
+        </div>
+        <div class="card-body" style="padding:0">
+          <img [src]="follower.pictureUrl" class="h-100 w-100" />
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+</div>

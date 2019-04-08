@@ -1,0 +1,11 @@
+﻿[{
+  "outputFileName": "wwwroot/runtime.js",
+  "inputFiles": [
+    "wwwroot/runtime*.js"
+  ],
+  "minify": {
+    "enabled": false,
+    "renameLocals": false
+  },
+  "sourceMap": false
+}]

@@ -1,0 +1,51 @@
+<div class="btn btn-primary" (click)="startTraining()">Start Training</div>
+
+
+<div class="row" *ngIf="trainResult$ | async as trainResult">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Train Result
+      </div>
+      <div class="card-body" >
+        <table class="table table-bordered table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of trainResult">
+              <td>
+                <img src="api/image/{{item.imageId}}" width="90">
+              </td>
+              <td>{{item.user}}</td>
+              <td>
+                <span class="badge"
+                  [class.badge-success]="item.score >= .85"
+                  [class.badge-warning]="item.score > .70 && item.score < .85"
+                  [class.badge-danger]="item.score <=.70">{{item.score | percent : '0.0-2'}}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav> -->
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>
+<!--/.row-->
