@@ -16,9 +16,9 @@ steps:
 - task: DotNetCoreInstaller@0
   inputs:
     version: '2.1.300'
-- script: cd $(Agent.BuildDirectory)\s\R2.ML.DeepLearning\ClientApp
-- script: npm i
-- script: ng build --prod
+
+- script: npm i $(Agent.BuildDirectory)\s\R2.ML.DeepLearning\ClientApp
+- script: ng build --prod $(Agent.BuildDirectory)\s\R2.ML.DeepLearning\ClientApp
 - script: dotnet restore $(Agent.BuildDirectory)\s\R2.ML.DeepLearning\R2.ML.DeepLearning.csproj
 - script: dotnet build $(Agent.BuildDirectory)\s\R2.ML.DeepLearning\R2.ML.DeepLearning.csproj --configuration $(buildConfiguration)
 
