@@ -17,6 +17,7 @@ steps:
   inputs:
     version: '2.1.300'
 
+- script: npm i -g @angular/cli
 - script: npm i $(Agent.BuildDirectory)\s\R2.ML.DeepLearning\ClientApp
 - script: ng build --prod $(Agent.BuildDirectory)\s\R2.ML.DeepLearning\ClientApp
 - script: dotnet restore $(Agent.BuildDirectory)\s\R2.ML.DeepLearning\R2.ML.DeepLearning.csproj
